@@ -36,3 +36,11 @@ export const isLBRYDomain = (uri: string) => {
 
   return false;
 };
+
+export const sanitizeURLForCSS = (uri: string) => {
+  return uri.replace("'","\\'");
+};
+
+export const cssUrl = (values: string[], ...inserted: any[]) => {
+  return values.map((value: string,index: number)=>value+(sanitizeURLForCSS(inserted[i])||"")).join("");
+};
